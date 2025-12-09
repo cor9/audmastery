@@ -265,20 +265,55 @@ p {
    CURRICULUM
    ============================================ */
 
-.curriculum-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--spacing-md);
-    margin-top: var(--spacing-lg);
+.curriculum-timeline {
+    max-width: 900px;
+    margin: var(--spacing-lg) auto 0;
 }
 
-.curriculum-item {
-    padding: var(--spacing-md);
-    background-color: white;
-    border-left: 4px solid var(--color-gold);
-    border-radius: 4px;
-    font-weight: 500;
+.curriculum-week {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.curriculum-week:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.week-number {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-gold);
+    color: var(--color-black);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.week-content {
+    padding-top: var(--spacing-xs);
+}
+
+.week-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-black);
+}
+
+.week-content p {
     color: var(--color-charcoal);
+    line-height: 1.7;
+    margin: 0;
 }
 
 /* ============================================
@@ -550,8 +585,16 @@ p {
         width: 100%;
     }
 
-    .curriculum-grid {
+    .curriculum-week {
         grid-template-columns: 1fr;
+        gap: var(--spacing-sm);
+    }
+
+    .week-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1rem;
+        margin-bottom: var(--spacing-xs);
     }
 
     .calendar-list li strong {
