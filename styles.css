@@ -289,64 +289,65 @@ p {
    ============================================ */
 
 .curriculum-timeline {
-    max-width: 900px;
-    margin: var(--spacing-lg) auto 0;
+    max-width: 1000px;
+    margin: var(--spacing-xl) auto 0;
 }
 
 .curriculum-week {
-    display: grid;
-    grid-template-columns: 80px 1fr;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-lg);
-    padding-bottom: var(--spacing-lg);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    position: relative;
-    transition: background-color 0.3s ease;
-    padding: var(--spacing-md);
-    border-radius: 6px;
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    align-items: flex-start;
 }
 
 .curriculum-week:hover {
-    background-color: rgba(212, 175, 55, 0.05);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
 .curriculum-week:last-child {
-    border-bottom: none;
     margin-bottom: 0;
-    padding-bottom: 0;
 }
 
 .week-number {
-    width: 60px;
-    height: 60px;
-    background-color: var(--color-gold);
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-mustard) 100%);
     color: var(--color-black);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: 1.75rem;
+    font-weight: 800;
     flex-shrink: 0;
-    margin: 0 auto;
-    text-align: center;
-    line-height: 60px;
+    box-shadow: 0 3px 10px rgba(212, 175, 55, 0.3);
 }
 
 .week-content {
-    padding-top: var(--spacing-xs);
+    flex: 1;
+    padding-top: 0;
 }
 
 .week-content h3 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     margin-bottom: var(--spacing-sm);
     color: var(--color-black);
+    font-weight: 700;
+    line-height: 1.3;
 }
 
 .week-content p {
     color: var(--color-charcoal);
-    line-height: 1.7;
+    line-height: 1.8;
     margin: 0;
+    font-size: 1.05rem;
 }
 
 /* ============================================
@@ -734,16 +735,22 @@ p {
     }
 
     .curriculum-week {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-sm);
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
     }
 
     .week-number {
-        width: 50px;
-        height: 50px;
-        font-size: 1rem;
-        margin: 0 auto var(--spacing-xs);
-        line-height: 50px;
+        width: 60px;
+        height: 60px;
+        min-width: 60px;
+        font-size: 1.5rem;
+        margin: 0 auto;
+    }
+
+    .week-content h3 {
+        font-size: 1.3rem;
+        text-align: center;
     }
 
     .about-corey-content {
