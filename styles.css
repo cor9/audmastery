@@ -214,6 +214,13 @@ p {
     padding: var(--spacing-lg);
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--color-gold);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .info-card h3 {
@@ -241,14 +248,29 @@ p {
 
 .calendar-list {
     list-style: none;
-    max-width: 600px;
+    max-width: 700px;
     margin: var(--spacing-lg) auto 0;
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: 8px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
 }
 
 .calendar-list li {
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-md) 0;
     font-size: 1.1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-left: 2rem;
+}
+
+.calendar-list li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--color-gold);
+    font-weight: bold;
+    font-size: 1.2rem;
 }
 
 .calendar-list li:last-child {
@@ -259,6 +281,7 @@ p {
     color: var(--color-black);
     display: inline-block;
     min-width: 180px;
+    font-weight: 700;
 }
 
 /* ============================================
@@ -278,6 +301,13 @@ p {
     padding-bottom: var(--spacing-lg);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     position: relative;
+    transition: background-color 0.3s ease;
+    padding: var(--spacing-md);
+    border-radius: 6px;
+}
+
+.curriculum-week:hover {
+    background-color: rgba(212, 175, 55, 0.05);
 }
 
 .curriculum-week:last-child {
@@ -298,6 +328,9 @@ p {
     font-size: 1.25rem;
     font-weight: 700;
     flex-shrink: 0;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 60px;
 }
 
 .week-content {
@@ -322,6 +355,16 @@ p {
 
 .bonuses {
     background: linear-gradient(135deg, var(--color-cream) 0%, #e8e8e0 100%);
+}
+
+.bonuses-value {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-gold);
+    margin-bottom: var(--spacing-lg);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .bonuses-list {
@@ -525,6 +568,80 @@ p {
 }
 
 /* ============================================
+   HEADER
+   ============================================ */
+
+.site-header {
+    background-color: white;
+    padding: var(--spacing-md) 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+}
+
+.logo-link {
+    display: inline-block;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo-link:hover {
+    transform: translateY(-3px);
+    opacity: 0.8;
+}
+
+.header-logo {
+    height: 50px;
+    width: auto;
+    max-width: 150px;
+    object-fit: contain;
+}
+
+/* ============================================
+   ABOUT COREY
+   ============================================ */
+
+.about-corey-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.corey-image {
+    width: 100%;
+}
+
+.corey-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.corey-bio h2 {
+    margin-bottom: var(--spacing-md);
+}
+
+.corey-bio p {
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+    color: var(--color-charcoal);
+}
+
+.corey-bio p:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
    FOOTER
    ============================================ */
 
@@ -594,7 +711,26 @@ p {
         width: 50px;
         height: 50px;
         font-size: 1rem;
-        margin-bottom: var(--spacing-xs);
+        margin: 0 auto var(--spacing-xs);
+        line-height: 50px;
+    }
+
+    .about-corey-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+    }
+
+    .corey-image {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .header-logos {
+        gap: var(--spacing-md);
+    }
+
+    .header-logo {
+        height: 40px;
     }
 
     .calendar-list li strong {
