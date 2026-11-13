@@ -289,12 +289,18 @@
               <p class="price">$499</p>
               <p>Save $150 off regular tuition of $649.</p>
             </div>
+            <div class="pricing-cta" data-early-bird-checkout hidden>
+              <a href="https://buy.stripe.com/3cIdR905Fgab7Ix7Wi2wV0t" class="btn btn-primary btn-block">Enroll for $499</a>
+            </div>
           </div>
           <div class="pricing-card">
             <h3>Monthly Payment Plan</h3>
             <div class="pricing-amount">
               <p class="price">3 payments of $175</p>
               <p>$525 total. Save $150 off the regular plan of 5 payments of $135 ($675 total).</p>
+            </div>
+            <div class="pricing-cta" data-early-bird-checkout hidden>
+              <a href="https://buy.stripe.com/9B6cN5g4DbTV8MB7Wi2wV0u" class="btn btn-primary btn-block">Enroll with 3 payments of $175</a>
             </div>
           </div>
         </div>
@@ -305,7 +311,7 @@
           <li><em>43 Bold Acting Choices</em> digital guide</li>
           <li>One month of <em>Bold Choices</em></li>
         </ul>
-        <p class="pricing-note">Enrollment links will be available when registration opens.</p>
+        <p class="pricing-note" id="early-bird-status">Enrollment links will be available when registration opens.</p>
       </div>
     </section>
 
@@ -499,5 +505,27 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+      const earlyBirdOpens = Date.parse("2026-11-27T00:00:00-08:00");
+      const earlyBirdCloses = Date.parse("2026-12-01T00:00:00-08:00");
+      const earlyBirdStatus = document.getElementById("early-bird-status");
+      const earlyBirdButtons = document.querySelectorAll("[data-early-bird-checkout]");
+
+      function updateEarlyBirdCheckout() {
+        const now = Date.now();
+        const isOpen = now >= earlyBirdOpens && now < earlyBirdCloses;
+        earlyBirdButtons.forEach((checkout) => {
+          checkout.hidden = !isOpen;
+        });
+        earlyBirdStatus.hidden = isOpen;
+        if (now >= earlyBirdCloses) {
+          earlyBirdStatus.textContent = "Black Friday Early Bird pricing has ended.";
+        }
+      }
+
+      updateEarlyBirdCheckout();
+      window.addEventListener("pageshow", updateEarlyBirdCheckout);
+      window.setInterval(updateEarlyBirdCheckout, 1000);
+    </script>
   </body>
 </html>
